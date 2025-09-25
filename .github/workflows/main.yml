@@ -41,7 +41,7 @@ jobs:
 
 
 
-  BUILD-AND-PUBLISH:
+  BUILD_AND_PUBLISH:
     runs-on: ubuntu-latest
     needs: Testing
     steps:
