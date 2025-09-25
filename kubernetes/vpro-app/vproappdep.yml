@@ -18,8 +18,8 @@ spec:
         - name: init-mydb
           image: busybox
           command:
-            - "sh"
-            - "-c"
+            - sh
+            - -c
             - >
               until nslookup vprodb.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local;
               do echo waiting for mydb; sleep 2; done;
@@ -27,15 +27,15 @@ spec:
         - name: init-memcache
           image: busybox
           command:
-            - "sh"
-            - "-c"
+            - sh
+            - -c
             - >
               until nslookup vprocache01.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local;
               do echo waiting for memcache; sleep 2; done;
 
       containers:
         - name: vproapp
-          image: "{{ .Values.appimage }}:{{ .Values.apptag }}"
+          image: '{{ .Values.appimage }}:{{ .Values.apptag }}'
           ports:
             - name: vproapp-port
               containerPort: 8080
